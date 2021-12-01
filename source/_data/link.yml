@@ -1,23 +1,46 @@
-- class_name: 友情链接
-  class_desc: 那些人，那些事
+- class_name: People I follow
+  class_desc: Go follow them and follow me 🤔
   link_list:
-    - name: Hexo
-      link: https://hexo.io/zh-tw/
-      avatar: https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg
-      descr: 快速、简单且强大的网誌框架
-
-- class_name: 网站
-  class_desc: 值得推荐的网站
+    - name: Harvey Zack
+      link: https://github.com/zhw2590582
+      avatar: https://avatars.githubusercontent.com/u/5907357?v=4
+      descr: zhw2590582    
+    - name: Linus Torvalds
+      link: https://github.com/torvalds
+      avatar: https://avatars.githubusercontent.com/u/1024025?v=4
+      descr: torvalds
+    - name: George Marques
+      link: https://github.com/vnen
+      avatar: https://avatars.githubusercontent.com/u/5599796?v=4
+      descr: vnen    
+    - name: Joel Arvidsson
+      link: https://github.com/oblador
+      avatar: https://avatars.githubusercontent.com/u/378279?v=4
+      descr: oblador
+- class_name: Useful Links
+  class_desc: Some code some 🤣
   link_list:
-    - name: Youtube
-      link: https://www.youtube.com/
-      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
-      descr: 视频网站
-    - name: Weibo
-      link: https://www.weibo.com/
-      avatar: https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png
-      descr: 中国最大社交分享平台
-    - name: Twitter
-      link: https://twitter.com/
-      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
-      descr: 社交分享平台
+    - name: Github
+      link: https://github.com/
+      avatar: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+      descr: Where the world builds software
+    - name: JS.coach
+      link: https://js.coach/
+      avatar: https://js.coach/static/media/jess.84e14f88.svg
+      descr: Search for JS packages
+    - name: Papers with Code
+      link: https://paperswithcode.com/
+      avatar: https://pbs.twimg.com/profile_images/1091364728163708929/A7vBSWBa_400x400.jpg
+      descr: Machine learning paper and code examples
+    - name: VimAwesome
+      link: https://vimawesome.com/
+      avatar: https://external-preview.redd.it/fnjLo2bcma7f18QtuAooxCJglg5Rm3PFqlPy6tCJ85w.jpg?width=640&crop=smart&auto=webp&s=a10e25407047e7878a901527b3685685c32c4fd2
+      descr: Vim is awesome!
+    - name: CommitStrip
+      link: https://www.commitstrip.com/en/?
+      avatar: https://www.commitstrip.com/wp-content/themes/krds_blog/images/logo_small.png
+      descr: The blog relating the daily life of web agency developers
+    - name: Godot
+      link: https://godotengine.org/
+      avatar: https://godotengine.org/themes/godotengine/assets/logo.svg
+      descr: The game engine you waited for.
