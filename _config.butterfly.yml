@@ -624,6 +624,8 @@ subtitle:
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
+    - '摔倒了爬起来就好。'
+    - '如果一直摔倒，也许走的路并不适合你。'
 
 # Loading Animation (加載動畫)
 preloader: false
