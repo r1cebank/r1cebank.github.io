@@ -1,5 +1,5 @@
 ---
-title:  Hardening USB Armory (part 2)
+title: Hardening the USB Armory (part 2)
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-03-16 22:26:15
 categories:
