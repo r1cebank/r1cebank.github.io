@@ -5,8 +5,6 @@ date: 2019-12-31 00:39:46
 categories:
 - Yearly Review
 tags:
-- yearly-review
-- 2019
 cover: /covers/review-1.png
 ---
 A lot have happened in 2019, and I have decided to make up a habit on recording the things I have done each year so I can look back and see if I had a good year or not.

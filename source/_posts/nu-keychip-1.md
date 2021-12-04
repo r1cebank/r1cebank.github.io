@@ -3,13 +3,12 @@ title: Sega Nu keychip (part 1)
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2020-12-03 20:58:06
 categories:
-- Learning
-- Arcade
-- Sega Nu
+- Gaming
 tags:
 - arcade
 - hardware
 - security
+- sega
 cover: /covers/nukeychip.bmp
 ---
 ## Introduction

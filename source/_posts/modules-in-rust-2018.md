@@ -4,7 +4,6 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2020-11-09 20:03:53
 categories:
 - Programming
-- Rust
 tags:
 - programming
 - rust

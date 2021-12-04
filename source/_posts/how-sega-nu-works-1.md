@@ -3,12 +3,11 @@ title: How Sega Nu works (part 1)
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-09 21:58:49
 categories:
-- Learning
-- Arcade
-- Sega Nu
+- Gaming
 tags:
 - arcade
 - windows
+- sega
 cover: /covers/sega-nu-pdaft.jpg
 ---
 Is been couple month since I started working on the Sega Nu, this is the first arcade unit I have worked on. Working on the system has totally changed my understanding of how those system works.

@@ -4,9 +4,9 @@ date: 2020-07-03 00:37:24
 copyright_author_href: https://github.com/r1cebank
 categories:
 - Random Thought
-- Technology
 tags:
 - random
+- technology
 cover: /covers/google2.0.0.jpg
 ---
 

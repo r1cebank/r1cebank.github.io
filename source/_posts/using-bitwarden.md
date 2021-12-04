@@ -3,8 +3,7 @@ title: Using Bitwarden as password manager
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-03-03 01:12:59
 categories:
-- Review
-- Software
+- Technology
 tags:
 - security
 - software

@@ -3,12 +3,11 @@ title: How Sega Nu works (part 2)
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-09 22:00:28
 categories:
-- Learning
-- Arcade
-- Sega Nu
+- Gaming
 tags:
 - arcade
 - windows
+- sega
 cover: /covers/nuarcade.jpg
 ---
 It's been a while since I have posted my findings about the Sega Nu machine. I was lucky enough to get another arcade machine for around 10,000 yen. My goal with this new machine is to carefully backup everything and then carefully make sure that I am able to get the recovery key for the bitlocker drives so I can do anything with it later on.

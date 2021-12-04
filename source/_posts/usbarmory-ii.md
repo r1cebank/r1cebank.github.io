@@ -3,8 +3,7 @@ title: USB Armory II
 copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-22 07:54:42
 categories:
-- Review
-- Hardware
+- Technology
 tags:
 - security
 - hardware

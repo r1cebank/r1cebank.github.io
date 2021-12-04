@@ -3,8 +3,7 @@ title: Adapta Theme Review
 date: 2018-04-24 06:33:41
 copyright_author_href: https://github.com/r1cebank
 categories:
-- Review
-- Themes
+- Technology
 tags:
 - linux
 - themes

@@ -4,7 +4,6 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2018-03-08 19:10:59
 categories:
 - Food
-- Recipe
 tags:
 - recipe
 cover: /covers/food-recipe-1.png

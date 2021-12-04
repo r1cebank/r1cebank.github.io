@@ -4,10 +4,8 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2019-08-31 21:13:59
 categories:
 - Food
-- Recipe
 tags:
 - recipe
-- ramen
 cover: /covers/food-recipe-2.png
 ---
 虽然未必正宗，但是味道其实还好的豚骨拉面配方🙃 （10人份）
