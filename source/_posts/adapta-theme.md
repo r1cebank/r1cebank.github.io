@@ -4,6 +4,7 @@ date: 2018-04-24 06:33:41
 copyright_author_href: https://github.com/r1cebank
 categories:
 - Technology
+- Reviews
 tags:
 - linux
 - themes

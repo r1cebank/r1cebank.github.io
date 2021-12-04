@@ -95,7 +95,7 @@ disable_top_img: false
 index_img: https://raw.githubusercontent.com/r1cebank/dotfiles/next/pictures/Wallpapers/Konachan.com%20-%20310482%20bodysuit%20hatsune_miku%20qi_zhong_ji%20space%20vocaloid.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img:
+default_top_img: https://raw.githubusercontent.com/r1cebank/dotfiles/next/pictures/Wallpapers/Konachan.com%20-%20310482%20bodysuit%20hatsune_miku%20qi_zhong_ji%20space%20vocaloid.jpg
 
 # The banner image of archive page
 archive_img:

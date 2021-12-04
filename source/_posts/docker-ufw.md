@@ -4,6 +4,7 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-01-11 01:49:00
 categories:
 - Technology
+- Learnings
 tags:
 - docker
 - linux

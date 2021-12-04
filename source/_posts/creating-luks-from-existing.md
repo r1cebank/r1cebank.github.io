@@ -4,6 +4,7 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-01 06:45:57
 categories:
 - Technology
+- Learnings
 tags:
 - linux
 - security

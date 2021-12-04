@@ -4,6 +4,7 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2020-12-03 20:58:06
 categories:
 - Gaming
+- Arcade
 tags:
 - arcade
 - hardware

@@ -4,6 +4,7 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-09 22:00:28
 categories:
 - Gaming
+- Arcade
 tags:
 - arcade
 - windows

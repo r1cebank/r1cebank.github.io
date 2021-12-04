@@ -4,6 +4,7 @@ date: 2020-07-06 22:52:55
 copyright_author_href: https://github.com/r1cebank
 categories:
 - Technology
+- Reviews
 tags:
 - linux
 - arch

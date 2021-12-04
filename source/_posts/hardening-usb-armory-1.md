@@ -4,6 +4,7 @@ copyright_author_href: 'https://github.com/r1cebank'
 date: 2021-02-26 23:00:32
 categories:
 - Technology
+- Tutorials
 tags:
 - security
 - usbarmory
