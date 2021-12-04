@@ -92,10 +92,10 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: https://raw.githubusercontent.com/r1cebank/dotfiles/next/pictures/Wallpapers/Konachan.com%20-%20310482%20bodysuit%20hatsune_miku%20qi_zhong_ji%20space%20vocaloid.jpg
+index_img: /banner.jpg
 
 # If the banner of page not setting, it will show the top_img
-default_top_img: https://raw.githubusercontent.com/r1cebank/dotfiles/next/pictures/Wallpapers/Konachan.com%20-%20310482%20bodysuit%20hatsune_miku%20qi_zhong_ji%20space%20vocaloid.jpg
+default_top_img: /banner.jpg
 
 # The banner image of archive page
 archive_img:
@@ -650,7 +650,8 @@ aside:
   card_announcement:
     enable: true
     content:
-      Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️
+      Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️<br>
+      正在导入旧博客的内容，还没有时间写新内容
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
