@@ -9,6 +9,7 @@ tags:
 - arcade
 - windows
 - sega
+- reverse-engineering
 cover: /covers/sega-nu-pdaft.jpg
 ---
 Is been couple month since I started working on the Sega Nu, this is the first arcade unit I have worked on. Working on the system has totally changed my understanding of how those system works.

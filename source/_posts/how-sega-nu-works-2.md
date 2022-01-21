@@ -9,6 +9,7 @@ tags:
 - arcade
 - windows
 - sega
+- reverse-engineering
 cover: /covers/nuarcade.jpg
 ---
 It's been a while since I have posted my findings about the Sega Nu machine. I was lucky enough to get another arcade machine for around 10,000 yen. My goal with this new machine is to carefully backup everything and then carefully make sure that I am able to get the recovery key for the bitlocker drives so I can do anything with it later on.

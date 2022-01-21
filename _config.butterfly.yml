@@ -651,7 +651,7 @@ aside:
     enable: true
     content:
       Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️<br>
-      正在导入旧博客的内容，还没有时间写新内容
+      旧博客内容导入完成，会时不时的更新新内容
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
