@@ -43,7 +43,7 @@ Things has been stressful at EA so I made a decision to leave, was able to make 
 * Returnal (4/5)
 * Monster Hunter: Rise (3/5)
 * Animal Crossing: New Horizon (5/5)
-* iWitcher III (4/5)
+* Witcher III (4/5)
 
 ## Finished Books 看完的书
 * The Communist Manifesto
