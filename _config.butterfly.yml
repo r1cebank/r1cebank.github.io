@@ -44,7 +44,7 @@ copy:
 #   icon: link || the description
 social:
   fab fa-github: https://github.com/r1cebank || Github
-  fas fa-envelope: mailto:rbnk@elica.io || Email
+  fas fa-envelope: mailto:me@r1ce.net || Email
 
 # search (搜索)
 # --------------------------------------
