@@ -17,6 +17,16 @@ body:
       required: true
 
   - type: dropdown
+    id: modify
+    attributes:
+      label: 是否修改过主题文件？ || Has the theme files been modified?
+      options:
+        - 是 (Yes)
+        - 不是 (No)
+    validations:
+      required: true
+
+  - type: dropdown
     id: browser
     attributes:
       label: 使用的瀏覽器？ || What browse are you using?
@@ -40,6 +50,15 @@ body:
         - Android
         - iOS
         - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: 依賴插件 | Package dependencies Information
+      description: 在 Hexo 根目錄下執行`npm ls --depth 0` | Run `npm ls --depth 0` in Hexo root directory
+      render: Text
     validations:
       required: true
 
