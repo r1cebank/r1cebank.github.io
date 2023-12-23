@@ -10,7 +10,7 @@ tags:
 - hardware
 - security
 - sega
-cover: /covers/nukeychip.bmp
+cover: /covers/nukeychip.png
 ---
 ## Introduction
 In the Sega Nu systems, system boot and application start is gated by the mysterious "keychip". A lot of systems sold online do not include the keychip since they are property of Sega and needed to be returned once the operator terminate contract with Sega. I was lucky enough to find two keychip being auctioned and I want to document my reverse engineering efforts. Hopefull later people are able to use this information to reconstruct keychip for the game they want to launch and keep these arcade machine running.

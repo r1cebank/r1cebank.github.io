@@ -8,7 +8,7 @@ categories:
 tags:
 - programming
 - rust
-cover: /covers/rustlang.bmp
+cover: /covers/rustlang.png
 ---
 ## Modules in Rust 2018
 

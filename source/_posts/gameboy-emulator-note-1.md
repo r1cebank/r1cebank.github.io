@@ -10,7 +10,7 @@ tags:
 - rust
 - gameboy
 - emulator
-cover: /covers/gameboy.bmp
+cover: /covers/gameboy.png
 ---
 I've been writing my gameboy emulator in rust and I had a lot of issues getting this startup screen to display properly, later I've realized it was achieved using the clever pallet swapping in runtime. 
 

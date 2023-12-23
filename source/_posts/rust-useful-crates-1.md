@@ -8,7 +8,7 @@ categories:
 tags:
 - programming
 - rust
-cover: /covers/rust-crate.bmp
+cover: /covers/rust-crate.png
 ---
 ## static_assertions
 https://crates.io/crates/static_assertions
