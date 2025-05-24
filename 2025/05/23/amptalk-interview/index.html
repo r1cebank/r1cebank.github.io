@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>A Respectful No: My Interview Journey with Amptalk | r1cebank's code &amp; 🍗 &amp; ✈️</title><meta name="author" content="r1cebank,me@r1ce.net"><meta name="copyright" content="r1cebank"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Meeting AmptalkEarlier this year, I started to seriously consider a shift—not just a job change, but a bigger change: moving to Japan, starting a..."><link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/261671"><link rel="canonical" href="https://r1ce.net/2025/05/23/amptalk-interview/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+          
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9k4dnvks84");</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'A Respectful No: My Interview Journey with Amptalk',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  isShuoshuo: false
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/261671" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">31</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">17</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/covers/amptalk-interview.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">r1cebank's code &amp; 🍗 &amp; ✈️</span></a><a class="nav-page-title" href="/"><span class="site-name">A Respectful No: My Interview Journey with Amptalk</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">A Respectful No: My Interview Journey with Amptalk</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-05-23T07:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-05-24T06:50:46.007Z" title="Updated 2025-05-23 23:50:46">2025-05-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Career-Reflections/">Career Reflections</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Meeting-Amptalk"><a href="#Meeting-Amptalk" class="headerlink" title="Meeting Amptalk"></a>Meeting Amptalk</h2><p>Earlier this year, I started to seriously consider a shift—not just a job change, but a bigger change: moving to Japan, starting a new phase of life, and laying the foundation for eventually building my own indie game studio.</p>
+<p>Among the applications I sent out, one company stood out—<strong>Amptalk</strong>, a Tokyo-based startup working on AI-powered conversation analytics. I applied half-expecting silence. Instead, I found myself going all the way through the interview process.</p>
+<hr>
+<h2 id="The-Interview-Process"><a href="#The-Interview-Process" class="headerlink" title="The Interview Process"></a>The Interview Process</h2><p>Amptalk’s process was structured but kind—something I really appreciated.</p>
+<ol>
+<li>🧑‍💼 HR call – introduction, motivation, soft skills</li>
+<li>📄 Take-home assignment – a small technical project</li>
+<li>👨‍💻 Technical interview with an engineer – code discussion, problem-solving</li>
+<li>🎯 VP interview – product focus, team dynamics</li>
+<li>🧠 CTO interview – long-term thinking, remote collaboration, and vision</li>
+</ol>
+<p>Throughout every step, the team was open, thoughtful, and engaged. There was no pressure, no showmanship. Just honest conversations. It was one of the most human interview processes I’ve ever gone through.</p>
+<hr>
+<h2 id="What-I-Liked"><a href="#What-I-Liked" class="headerlink" title="What I Liked"></a>What I Liked</h2><ul>
+<li>✅ I felt <strong>genuinely listened to</strong>—not filtered through buzzwords or checked boxes.</li>
+<li>✅ The <strong>technical interview</strong> are not solely focused on solving LeetCode problem, they care about how you think.</li>
+<li>✅ The <strong>CTO took time</strong> to dive into the details of my past experiences.</li>
+<li>✅ They offered me a <strong>Leader 1</strong> position, a senior role with potential impact.</li>
+<li>✅ They supported <strong>remote work and HSP visa sponsorship</strong>—a huge plus for relocation.</li>
+</ul>
+<p>It felt like a team I could respect. It felt like a place I could see myself in.</p>
+<hr>
+<h2 id="But-I-Didn’t-Accept"><a href="#But-I-Didn’t-Accept" class="headerlink" title="But I Didn’t Accept"></a>But I Didn’t Accept</h2><p>And yet, after many days of reflection, I decided to respectfully <strong>decline the offer</strong>.</p>
+<p>This wasn’t an easy decision—and it certainly wasn’t because Amptalk wasn’t good enough.</p>
+<blockquote>
+<p>It was because <strong>the timing wasn’t right</strong>—and I needed to be honest about that.</p>
+</blockquote>
+<p>Moving across countries, changing contexts, adjusting to a new culture and workstyle—all while hoping to build toward something personal and long-term—comes with a cost. And I realized I wasn’t fully ready to take that all on <strong>right now</strong>.</p>
+<p>The role was promising. The people were great. But the opportunity came a bit earlier than I was ready for.</p>
+<hr>
+<h2 id="What-I-Appreciate-Most"><a href="#What-I-Appreciate-Most" class="headerlink" title="What I Appreciate Most"></a>What I Appreciate Most</h2><p>After I turned down the offer, the HR team still responded with kindness and warmth. They thanked me for my thoughtfulness and even asked if I’d be open to sharing my reasoning so they could improve.</p>
+<p>I can’t overstate how rare and meaningful that kind of response is. It left me with <strong>even more respect for the company</strong> than when I first applied.</p>
+<p>I wrote back and told them honestly:</p>
+<blockquote>
+<p>“It’s not that you weren’t enough. It’s that I want to give myself the best chance to fully show up—at the right time, in the right frame.”</p>
+</blockquote>
+<hr>
+<h2 id="Final-Thoughts-Saying-No-Can-Be-a-Form-of-Respect"><a href="#Final-Thoughts-Saying-No-Can-Be-a-Form-of-Respect" class="headerlink" title="Final Thoughts: Saying No Can Be a Form of Respect"></a>Final Thoughts: Saying No Can Be a Form of Respect</h2><p>Sometimes, saying no isn’t about closing a door.<br>It’s about <strong>protecting a future version of yourself</strong> that you haven’t grown into yet.</p>
+<p>I’m glad I didn’t say yes just because I was afraid to miss out.<br>And I’m even more glad that I had the chance to meet a team like Amptalk, who made the whole process human and hopeful.</p>
+<p>Maybe our paths will cross again in the future.<br>If they do, I hope I’ll be ready to say “yes” without hesitation.</p>
+<p>Until then, I’ll keep walking toward that version of myself who’s ready—for everything.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/r1cebank">r1cebank</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://r1ce.net/2025/05/23/amptalk-interview/">https://r1ce.net/2025/05/23/amptalk-interview/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/job-hunting/">job-hunting</a><a class="post-meta__tags" href="/tags/interview-experience/">interview experience</a><a class="post-meta__tags" href="/tags/career-growth/">career growth</a><a class="post-meta__tags" href="/tags/working-in-Japan/">working in Japan</a></div><div class="post-share"><div class="social-share" data-image="/covers/amptalk-interview.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi"><img class="cover" src="/covers/caddi-interview.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Why I Decided Not to Join CADDi</div></div><div class="info-2"><div class="info-item-1">Recently, I formally withdrew from the hiring process at CADDi, a fast-growing B2B manufacturing platform in Japan.I applied for a Senior Software Engineer position and went through multiple rounds of interviews and evaluations.By the end, I realized this opportunity—and the culture behind it—was fundamentally not for me. Here’s what happened, and why I chose to walk away.  Interview Process SummaryThe process was well-organized at first and included:  Initial HR screening A deep dive with...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi"><img class="cover" src="/covers/caddi-interview.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-20</div><div class="info-item-2">Why I Decided Not to Join CADDi</div></div><div class="info-2"><div class="info-item-1">Recently, I formally withdrew from the hiring process at CADDi, a fast-growing B2B manufacturing platform in Japan.I applied for a Senior Software Engineer position and went through multiple rounds of interviews and evaluations.By the end, I realized this opportunity—and the culture behind it—was fundamentally not for me. Here’s what happened, and why I chose to walk away.  Interview Process SummaryThe process was well-organized at first and included:  Initial HR screening A deep dive with...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/261671" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">r1cebank</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">31</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">29</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">17</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/r1cebank"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/r1cebank" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@r1ce.net" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️<br> 旧博客内容导入完成，会时不时的更新新内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Meeting-Amptalk"><span class="toc-number">1.</span> <span class="toc-text">Meeting Amptalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Interview-Process"><span class="toc-number">2.</span> <span class="toc-text">The Interview Process</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-I-Liked"><span class="toc-number">3.</span> <span class="toc-text">What I Liked</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#But-I-Didn%E2%80%99t-Accept"><span class="toc-number">4.</span> <span class="toc-text">But I Didn’t Accept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-I-Appreciate-Most"><span class="toc-number">5.</span> <span class="toc-text">What I Appreciate Most</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Final-Thoughts-Saying-No-Can-Be-a-Form-of-Respect"><span class="toc-number">6.</span> <span class="toc-text">Final Thoughts: Saying No Can Be a Form of Respect</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/23/amptalk-interview/" title="A Respectful No: My Interview Journey with Amptalk"><img src="/covers/amptalk-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="A Respectful No: My Interview Journey with Amptalk"/></a><div class="content"><a class="title" href="/2025/05/23/amptalk-interview/" title="A Respectful No: My Interview Journey with Amptalk">A Respectful No: My Interview Journey with Amptalk</a><time datetime="2025-05-23T07:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi"><img src="/covers/caddi-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Why I Decided Not to Join CADDi"/></a><div class="content"><a class="title" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi">Why I Decided Not to Join CADDi</a><time datetime="2025-05-21T06:31:54.000Z" title="Created 2025-05-20 23:31:54">2025-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/07/year-review-2024/" title="2024 Review"><img src="/covers/review-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024 Review"/></a><div class="content"><a class="title" href="/2025/01/07/year-review-2024/" title="2024 Review">2024 Review</a><time datetime="2025-01-07T02:03:38.000Z" title="Created 2025-01-06 18:03:38">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/26/ppl-plan-1/" title="Private Pilot License Study Plan 1"><img src="/covers/ppl-plan-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Private Pilot License Study Plan 1"/></a><div class="content"><a class="title" href="/2024/05/26/ppl-plan-1/" title="Private Pilot License Study Plan 1">Private Pilot License Study Plan 1</a><time datetime="2024-05-26T01:00:28.000Z" title="Created 2024-05-25 18:00:28">2024-05-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/12/23/sega-nu-preservation/" title="Sega Nu Preservation"><img src="/covers/bitlocker.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sega Nu Preservation"/></a><div class="content"><a class="title" href="/2023/12/23/sega-nu-preservation/" title="Sega Nu Preservation">Sega Nu Preservation</a><time datetime="2023-12-23T00:21:27.000Z" title="Created 2023-12-22 16:21:27">2023-12-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2025 By r1cebank</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Made with ❤️ in Vancouver</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = `%%{init:{ 'theme':'${theme}'}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
