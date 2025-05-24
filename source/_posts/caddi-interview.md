@@ -2,12 +2,13 @@
 title: "Why I Decided Not to Join CADDi"
 copyright_author_href: https://github.com/r1cebank
 date: 2025-05-20 23:31:54
-categories:
 tags:
   - job-hunting
   - interview experience
   - career growth
   - working in Japan
+categories:
+  - Career Reflections
 cover: /covers/caddi-interview.png
 ---
 
