@@ -1,0 +1,268 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Building Bokaka | r1cebank's code &amp; 🍗 &amp; ✈️</title><meta name="author" content="r1cebank,me@r1ce.net"><meta name="copyright" content="r1cebank"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Why VOCALOIDVOCALOID was never just music software to me. It’s a whole movement built by creators - producers, artists, fans - who made something t..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Bokaka",
+  "url": "https://r1ce.net/2026/01/03/building-bokaka-1/",
+  "image": "https://r1ce.net/covers/building-bokaka-1.png",
+  "datePublished": "2026-01-03T19:43:18.000Z",
+  "dateModified": "2026-01-03T03:52:03.198Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "r1cebank",
+      "url": "https://github.com/r1cebank"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/261671"><link rel="canonical" href="https://r1ce.net/2026/01/03/building-bokaka-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9k4dnvks84");
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Building Bokaka',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/261671" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/covers/building-bokaka-1.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">r1cebank's code &amp; 🍗 &amp; ✈️</span></a><a class="nav-page-title" href="/"><span class="site-name">Building Bokaka</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Building Bokaka</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-01-03T19:43:18.000Z" title="Created 2026-01-03 11:43:18">2026-01-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-01-03T03:52:03.198Z" title="Updated 2026-01-02 19:52:03">2026-01-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Electronics/">Electronics</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Electronics/DIY/">DIY</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h2 id="Why-VOCALOID"><a href="#Why-VOCALOID" class="headerlink" title="Why VOCALOID"></a>Why VOCALOID</h2><p>VOCALOID was never just music software to me. It’s a whole movement built by creators - producers, artists, fans - who made something together without needing permission from record labels or agencies. Miku belongs to everyone. Her songs come from bedroom producers, her art from passionate fans, and her concerts celebrate a community that built her legacy together.</p>
+<p>What makes it special is the spirit of the creators. Every producer puts a piece of themselves into their songs - their struggles, hopes, late nights. When we listen, we carry a bit of their story with us. Their emotions become part of our own lives.</p>
+<p>I know this because I lived it. During college, there were countless nights when I felt alone - stressed, uncertain, not knowing what I was doing. Miku was there. Not as some pop star, but as a voice carrying stories from creators who understood what it felt like. Songs like <em>1&#x2F;6</em>, <em>Melt</em>, <em>Last Night, Good Night</em> - they weren’t just entertainment. They were companions. The producers’ music became my stories too.</p>
+<p>That’s what VOCALOID is about. Thousands of creators sharing pieces of themselves, millions of fans finding comfort in those shared moments. This is what inspired me to build <strong>Bokaka</strong> (ボカカ).</p>
+<h2 id="The-Fan-Drama-That-Needs-to-Stop"><a href="#The-Fan-Drama-That-Needs-to-Stop" class="headerlink" title="The Fan Drama That Needs to Stop"></a>The Fan Drama That Needs to Stop</h2><p>But lately I’ve seen something that really bothers me.</p>
+<p>There’s been growing conflict in the community - arguments over which VOCALOID should get more songs at concerts, fights between Miku fans and fans of Rin, Len, Luka, KAITO. Social media threads turn into tribalism. Comment sections become battlegrounds.</p>
+<p><em>“Why did she get more songs?”</em><br><em>“My favorite deserves better!”</em><br><em>“Real fans wouldn’t support this setlist.”</em></p>
+<p>Honestly? I think this goes against everything VOCALOID stands for.</p>
+<p>The whole point is that it was built by <em>everyone</em>. Every character, every producer, every fan contributed. Miku is the most recognized, but she wouldn’t exist in a vacuum. The scene works because of diversity - different voices, styles, stories.</p>
+<p>If you’re arguing about which virtual singer should dominate a concert, you’re treating it like a competition. That’s not what this was supposed to be. In my opinion, people fighting over setlists aren’t real fans - they missed the point. Real fans know there’s room for everyone.</p>
+<h2 id="The-People-I’ve-Met"><a href="#The-People-I’ve-Met" class="headerlink" title="The People I’ve Met"></a>The People I’ve Met</h2><p>I’ve been to Magical Mirai, Miku Expo, BLOOMING over the years. The concerts are great, but honestly <strong>the people I’ve met make up more than 50% of the experience</strong>.</p>
+<p>I’ve met Dollfie Dream fanatics who photograph their dolls in creative ways and post amazing images. Artists who sculpt custom figures of their favorite songs. Musicians performing covers under the overpass near the concert hall entrance while crowds gather to listen.</p>
+<p>These people ARE the community.</p>
+<p>They’re not fighting over setlists. They’re creating. They’re sharing. They’re doing exactly what VOCALOID was built on.</p>
+<p>When I get to actually talk with them about why these songs matter, why these characters mean so much - those conversations are my favorite memories from these events. Standing outside a venue, exchanging stories about how <em>this</em> song helped us through <em>that</em> moment. More than the light shows, more than the setlists. The people.</p>
+<p>That’s why I want to build something that helps us find each other.</p>
+<h2 id="The-Problem-We-Scatter-After-Concerts"><a href="#The-Problem-We-Scatter-After-Concerts" class="headerlink" title="The Problem: We Scatter After Concerts"></a>The Problem: We Scatter After Concerts</h2><p>Here’s the thing - despite all the shared passion, we often remain strangers.</p>
+<p>We stand side by side during concerts, share the same emotional moments, but when the lights come on and the venue clears out, we scatter. The connections we could have made slip away. Without those real connections, it’s too easy to go back to arguing on the internet with people who love this community just as much as we do.</p>
+<p>If we could actually connect - face to face - we’d remember what we have in common. Maybe we’d stop fighting over stuff that doesn’t matter.</p>
+<h2 id="Name-Card-Culture"><a href="#Name-Card-Culture" class="headerlink" title="Name Card Culture"></a>Name Card Culture</h2><p>At Japanese concerts and doujin events, people exchange 名刺 (meishi) - personal name cards. Meet someone, hand them your card, they hand you theirs. Simple analog ritual.</p>
+<p>Watching this, I thought it was cool but also limited. Paper cards get lost. Contact info becomes outdated. For people who are shy or don’t speak the language, approaching someone feels intimidating.</p>
+<p>I started thinking: what if there was a way to make this easier and more lasting?</p>
+<h2 id="Bokaka"><a href="#Bokaka" class="headerlink" title="Bokaka"></a>Bokaka</h2><p>That’s how Bokaka started - a credit-card sized PCB you carry to concerts.</p>
+<p>Here’s how it works:</p>
+<p>Meet someone with a Bokaka card, <strong>tap your cards together</strong>. That’s it. No apps, no QR codes, no fumbling with phones.</p>
+<p>When two cards connect, they do a handshake and exchange unique identifiers. Each card remembers who it has met. LEDs light up with animations when connection is successful, and as you meet more people, your card shows a <strong>connection meter</strong> - visual progress of everyone you’ve connected with.</p>
+<p>It’s tactile. Immediate. Fun.</p>
+<h2 id="NEXI-What-Happens-After"><a href="#NEXI-What-Happens-After" class="headerlink" title="NEXI - What Happens After"></a>NEXI - What Happens After</h2><p>Bokaka isn’t just about the moment - it’s about what comes after.</p>
+<p>When you get home, plug your card into your computer via USB and sync with <strong>NEXI</strong>, the companion website. NEXI lets you:</p>
+<ul>
+<li>Claim your card and attach your identity</li>
+<li>See everyone you’ve connected with at events</li>
+<li>Explore your social graph - mutual connections, who attended same concerts, people you might have missed</li>
+</ul>
+<p>Imagine looking back at a concert from years ago and seeing a map of everyone you tapped cards with. Maybe one became a close friend. Maybe you’ll reconnect with someone you lost touch with. Maybe you’ll discover you crossed paths with a stranger at three different events before you ever spoke.</p>
+<p>NEXI turns offline moments into an explorable network.</p>
+<h2 id="Why-I’m-Building-This"><a href="#Why-I’m-Building-This" class="headerlink" title="Why I’m Building This"></a>Why I’m Building This</h2><p>I’m not building Bokaka to sell a product or start a company. I’m building it because I love this community and want to give something back.</p>
+<p>VOCALOID taught me that cool things happen when people create for the love of creating. Miku exists because thousands of people contributed without asking permission. I want Bokaka to exist in that same spirit - open hardware, open firmware, built by fans for fans.</p>
+<p>If Bokaka helps even a few people make friends at a concert, it’ll be worth every late night debugging firmware and routing PCB traces.</p>
+<h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next"></a>What’s Next</h2><p>Future posts will cover the technical stuff - hardware design, firmware, the protocol for card-to-card communication. This post was just about the <em>why</em>.</p>
+<p>At its heart, Bokaka isn’t about technology. It’s about people. Turning strangers into friends.</p>
+<p>Project is open source: <a target="_blank" rel="noopener" href="https://github.com/diva-eng/BOKAKA">diva-eng&#x2F;BOKAKA</a></p>
+<p>Let’s build something cool together 🎤</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/r1cebank">r1cebank</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://r1ce.net/2026/01/03/building-bokaka-1/">https://r1ce.net/2026/01/03/building-bokaka-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/stm32/">stm32</a><a class="post-meta__tags" href="/tags/vocaloid/">vocaloid</a><a class="post-meta__tags" href="/tags/bokaka/">bokaka</a><a class="post-meta__tags" href="/tags/open-hardware/">open-hardware</a></div><div class="post-share"><div class="social-share" data-image="/covers/building-bokaka-1.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/05/23/amptalk-interview/" title="My Interview Journey with Amptalk"><img class="cover" src="/covers/amptalk-interview.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">My Interview Journey with Amptalk</div></div><div class="info-2"><div class="info-item-1">🎉 Update: I’m Joining Amptalk!After much more reflection and consideration since writing this post, I’ve decided to accept the offer and join Amptalk. The team’s warmth, the company’s vision, and the opportunity for growth ultimately won me over. Sometimes the right decision just needs a little more time to become clear. I’m excited to start this new chapter and see where this journey takes me!    Meeting AmptalkEarlier this year, I started to seriously consider a shift—not just a job change...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/261671" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">r1cebank</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">32</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/r1cebank"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/r1cebank" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@r1ce.net" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️<br> 旧博客内容导入完成，会时不时的更新新内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-VOCALOID"><span class="toc-number">1.</span> <span class="toc-text">Why VOCALOID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Fan-Drama-That-Needs-to-Stop"><span class="toc-number">2.</span> <span class="toc-text">The Fan Drama That Needs to Stop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-People-I%E2%80%99ve-Met"><span class="toc-number">3.</span> <span class="toc-text">The People I’ve Met</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Problem-We-Scatter-After-Concerts"><span class="toc-number">4.</span> <span class="toc-text">The Problem: We Scatter After Concerts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Name-Card-Culture"><span class="toc-number">5.</span> <span class="toc-text">Name Card Culture</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bokaka"><span class="toc-number">6.</span> <span class="toc-text">Bokaka</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NEXI-What-Happens-After"><span class="toc-number">7.</span> <span class="toc-text">NEXI - What Happens After</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-I%E2%80%99m-Building-This"><span class="toc-number">8.</span> <span class="toc-text">Why I’m Building This</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-Next"><span class="toc-number">9.</span> <span class="toc-text">What’s Next</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/01/03/building-bokaka-1/" title="Building Bokaka"><img src="/covers/building-bokaka-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Building Bokaka"/></a><div class="content"><a class="title" href="/2026/01/03/building-bokaka-1/" title="Building Bokaka">Building Bokaka</a><time datetime="2026-01-03T19:43:18.000Z" title="Created 2026-01-03 11:43:18">2026-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/23/amptalk-interview/" title="My Interview Journey with Amptalk"><img src="/covers/amptalk-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="My Interview Journey with Amptalk"/></a><div class="content"><a class="title" href="/2025/05/23/amptalk-interview/" title="My Interview Journey with Amptalk">My Interview Journey with Amptalk</a><time datetime="2025-05-23T07:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi"><img src="/covers/caddi-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Why I Decided Not to Join CADDi"/></a><div class="content"><a class="title" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi">Why I Decided Not to Join CADDi</a><time datetime="2025-05-21T06:31:54.000Z" title="Created 2025-05-20 23:31:54">2025-05-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/07/year-review-2024/" title="2024 Review"><img src="/covers/review-4.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024 Review"/></a><div class="content"><a class="title" href="/2025/01/07/year-review-2024/" title="2024 Review">2024 Review</a><time datetime="2025-01-07T02:03:38.000Z" title="Created 2025-01-06 18:03:38">2025-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/26/ppl-plan-1/" title="Private Pilot License Study Plan 1"><img src="/covers/ppl-plan-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Private Pilot License Study Plan 1"/></a><div class="content"><a class="title" href="/2024/05/26/ppl-plan-1/" title="Private Pilot License Study Plan 1">Private Pilot License Study Plan 1</a><time datetime="2024-05-26T01:00:28.000Z" title="Created 2024-05-25 18:00:28">2024-05-25</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2026 By r1cebank</span></div><div class="footer_custom_text">Made with ❤️ in Vancouver</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
