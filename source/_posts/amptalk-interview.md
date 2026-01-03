@@ -1,5 +1,5 @@
 ---
-title: "A Respectful No: My Interview Journey with Amptalk"
+title: "My Interview Journey with Amptalk"
 copyright_author_href: https://github.com/r1cebank
 date: 2025-05-23
 tags:
@@ -10,6 +10,14 @@ tags:
 categories:
   - Career Reflections
 cover: /covers/amptalk-interview.png
+---
+
+{% note success %}
+## 🎉 Update: I'm Joining Amptalk!
+
+After much more reflection and consideration since writing this post, I've decided to accept the offer and join Amptalk. The team's warmth, the company's vision, and the opportunity for growth ultimately won me over. Sometimes the right decision just needs a little more time to become clear. I'm excited to start this new chapter and see where this journey takes me!
+{% endnote %}
+
 ---
 
 ## Meeting Amptalk
