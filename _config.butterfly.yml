@@ -624,8 +624,14 @@ subtitle:
   # 開頭不允許轉義字元，如需要，請把整個句子用雙引號包住
   # 如果關閉打字效果，subtitle只會顯示sub的第一行文字
   sub:
-    - "摔倒了爬起来就好。"
-    - "如果一直摔倒，也许走的路并不适合你。"
+    - "Done is better than perfect."
+    - "人生は一度きり。悔いなく生きよう。"
+    - "少想无用的事，多做有意义的事。"
+    - "Execute. Reflect. Improve. Repeat."
+    - "别为小事烦恼，专注向前。"
+    - "Only action turns dreams into reality."
+    - "無駄を気にせず、全力で生きろ。"
+    - "Live fully, love deeply, regret nothing."
 
 # Loading Animation (加載動畫)
 preloader: false
