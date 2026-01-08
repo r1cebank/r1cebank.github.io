@@ -1,5 +1,5 @@
 ---
-title: year-review-2025
+title: 2025 Review
 copyright_author_href: https://github.com/r1cebank
 date: 2026-01-08 00:31:11
 categories:
