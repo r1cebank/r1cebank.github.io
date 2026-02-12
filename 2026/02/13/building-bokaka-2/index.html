@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Building Bokaka (part 2) | r1cebank's code &amp; 🍗 &amp; ✈️</title><meta name="author" content="r1cebank,me@r1ce.net"><meta name="copyright" content="r1cebank"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="In the last post, I talked about why I’m building Bokaka. This time, let’s get into the how - choosing the right hardware, writing firmware from sc..."><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Building Bokaka (part 2)",
+  "url": "https://r1ce.net/2026/02/13/building-bokaka-2/",
+  "image": "https://r1ce.net/covers/building-bokaka-2.png",
+  "datePublished": "2026-02-13T04:59:36.000Z",
+  "dateModified": "2026-02-12T15:09:42.142Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "r1cebank",
+      "url": "https://github.com/r1cebank"
+    }
+  ]
+}</script><link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/261671"><link rel="canonical" href="https://r1ce.net/2026/02/13/building-bokaka-2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "9k4dnvks84");
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Building Bokaka (part 2)',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="https://avatars.githubusercontent.com/u/261671" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/covers/building-bokaka-2.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">r1cebank's code &amp; 🍗 &amp; ✈️</span></a><a class="nav-page-title" href="/"><span class="site-name">Building Bokaka (part 2)</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/Food"><i class="fa-fw fas fa-drumstick-bite"></i><span> Food</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Building Bokaka (part 2)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-02-13T04:59:36.000Z" title="Created 2026-02-12 20:59:36">2026-02-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-02-12T15:09:42.142Z" title="Updated 2026-02-12 07:09:42">2026-02-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Electronics/">Electronics</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Electronics/DIY/">DIY</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>In the last post, I talked about <em>why</em> I’m building Bokaka. This time, let’s get into the <em>how</em> - choosing the right hardware, writing firmware from scratch, and the painful journey of getting two cards to actually talk to each other.</p>
+<h2 id="Choosing-the-MCU"><a href="#Choosing-the-MCU" class="headerlink" title="Choosing the MCU"></a>Choosing the MCU</h2><p>The first decision was picking the right microcontroller. I had a few hard requirements:</p>
+<ul>
+<li><strong>USB support</strong> - Bokaka cards need to plug into a computer for syncing with NEXI, so native USB was non-negotiable</li>
+<li><strong>Built-in unique ID</strong> - STM32 chips have a factory-burned unique 96-bit ID, which is perfect for identifying each card without needing external components</li>
+<li><strong>Low power</strong> - these cards run on a small battery at concerts, so power efficiency matters</li>
+<li><strong>Fast enough for basic crypto</strong> - the USB claiming needs some cryptographic operations, so the MCU can’t be too slow</li>
+</ul>
+<div class="note info flat"><p>The STM32L053R8 is chosen for the MCU because it has unique ID and low power modes, most importantly it contains USB support which is crucial for dumping handshake data later with NEXI. It is also quite cheap :)</p>
+</div>
+
+<h2 id="Getting-Started-with-Nucleo-Dev-Boards"><a href="#Getting-Started-with-Nucleo-Dev-Boards" class="headerlink" title="Getting Started with Nucleo Dev Boards"></a>Getting Started with Nucleo Dev Boards</h2><p>Before designing a custom PCB, I ordered STM32 Nucleo development boards to prototype with. These boards are great because they come with an onboard debugger and break out all the MCU pins for easy experimentation.</p>
+<p>The board arrived from China and after some testing I got some quick sketch running with <a target="_blank" rel="noopener" href="https://platformio.org/">PlatformIO</a></p>
+<img src="/2026/02/13/building-bokaka-2/prototype.jpg" class="" title="prototype board">
+
+<h2 id="Writing-the-Firmware"><a href="#Writing-the-Firmware" class="headerlink" title="Writing the Firmware"></a>Writing the Firmware</h2><p>With the dev board in hand, it was time to start writing firmware. I decided to use <a target="_blank" rel="noopener" href="https://platformio.org/">PlatformIO</a> with a heavily abstracted layer (HAL), this allows me to quickly test my thoughts and iterate on them without have to worry about pin assignment, STM32CubeIDE. The plat to write the firmware is the following:</p>
+<ol>
+<li>Write a simple USB serial command and response feature that will allow me to send commands to the board</li>
+<li>Adding helpers to retrieve the unique ID from the board and save it in memory for easy access</li>
+<li>Test the encryption capability and speed on the board</li>
+<li>Write the 1-Wire communication protocol implementation</li>
+</ol>
+<h3 id="USB-Serial-Communication"><a href="#USB-Serial-Communication" class="headerlink" title="USB Serial Communication"></a>USB Serial Communication</h3><p>The first milestone was getting USB serial communication working. When you plug a Bokaka card into your computer via USB, it enumerates as a CDC serial device - no drivers needed. This is how users will eventually sync their cards with <strong>NEXI</strong>.</p>
+<p>The command handler sits on top of a layered architecture:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│                    Host PC (Python/etc)                      │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                      USB CDC Serial                          │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                  UsbCommandHandler                           │</span><br><span class="line">│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────┐  │</span><br><span class="line">│  │ Line Buffer │  │ Command Parse│  │ JSON Response      │  │</span><br><span class="line">│  └─────────────┘  └──────────────┘  └────────────────────┘  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                  Platform Serial HAL                         │</span><br><span class="line">│              (platform_serial_arduino.cpp)                   │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                   Arduino Serial (USB CDC)                   │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>Commands are newline-terminated, case-insensitive, and all responses come back as JSON objects with an <code>event</code> field. This makes it easy to parse from any language on the host side.</p>
+<h4 id="Command-Reference"><a href="#Command-Reference" class="headerlink" title="Command Reference"></a>Command Reference</h4><p>Here’s the full set of commands the card understands:</p>
+<p><strong><code>HELLO</code></strong> - Device identification. Returns the unique device ID, firmware version, build timestamp, and git hash.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ HELLO</span><br><span class="line">← &#123;&quot;event&quot;:&quot;hello&quot;,&quot;device_id&quot;:&quot;&lt;24-char hex&gt;&quot;,&quot;fw&quot;:&quot;1.0.0&quot;,&quot;build&quot;:&quot;2026-01-03T12:00:00Z&quot;,&quot;hash&quot;:&quot;abc123&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>GET_STATE</code></strong> - Current tap statistics. Returns how many total taps have been recorded and how many unique links are stored.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ GET_STATE</span><br><span class="line">← &#123;&quot;event&quot;:&quot;state&quot;,&quot;totalTapCount&quot;:42,&quot;linkCount&quot;:5&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>DUMP [offset] [count]</code></strong> - Paginated link dump. Returns stored peer IDs with pagination support (default: offset&#x3D;0, count&#x3D;10).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ DUMP 0 10</span><br><span class="line">← &#123;&quot;event&quot;:&quot;links&quot;,&quot;offset&quot;:0,&quot;count&quot;:3,&quot;items&quot;:[&#123;&quot;peer&quot;:&quot;A1B2C3...&quot;&#125;,&#123;&quot;peer&quot;:&quot;D4E5F6...&quot;&#125;]&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>CLEAR</code></strong> - Reset all links and tap count. Preserves the device’s selfId and secret key. ACK is sent <em>before</em> the blocking EEPROM write to prevent serial timeout.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ CLEAR</span><br><span class="line">← &#123;&quot;event&quot;:&quot;ack&quot;,&quot;cmd&quot;:&quot;CLEAR&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>PROVISION_KEY version key_hex</code></strong> - Provisions a 32-byte secret key for HMAC signing. This is used by NEXI to verify that tap data hasn’t been tampered with.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ PROVISION_KEY 1 &lt;64-char hex key&gt;</span><br><span class="line">← &#123;&quot;event&quot;:&quot;ack&quot;,&quot;cmd&quot;:&quot;PROVISION_KEY&quot;,&quot;keyVersion&quot;:1&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>SIGN_STATE nonce_hex</code></strong> - Signs the current state with HMAC-SHA256 for server-side verification. The HMAC covers the device ID, nonce, tap count, link count, and all peer IDs.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">→ SIGN_STATE &lt;2-64 char hex nonce&gt;</span><br><span class="line">← &#123;&quot;event&quot;:&quot;SIGNED_STATE&quot;,&quot;device_id&quot;:&quot;...&quot;,&quot;nonce&quot;:&quot;...&quot;,&quot;totalTapCount&quot;:42,&quot;linkCount&quot;:5,&quot;keyVersion&quot;:1,&quot;hmac&quot;:&quot;&lt;64-char hex&gt;&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note info flat"><p>The HMAC message is structured as: <code>selfId (12 bytes) + nonce (N bytes) + totalTapCount (4 LE) + linkCount (2 LE) + [peerId × linkCount]</code>. This ensures the server can verify the entire state is authentic and untampered.</p>
+</div>
+
+<p>All errors come back as JSON too, making them easy to handle programmatically:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;event&quot;</span><span class="punctuation">:</span><span class="string">&quot;error&quot;</span><span class="punctuation">,</span><span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span><span class="string">&quot;unknown command: FOO&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;event&quot;</span><span class="punctuation">:</span><span class="string">&quot;error&quot;</span><span class="punctuation">,</span><span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span><span class="string">&quot;invalid key hex&quot;</span><span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;event&quot;</span><span class="punctuation">:</span><span class="string">&quot;error&quot;</span><span class="punctuation">,</span><span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span><span class="string">&quot;no_key&quot;</span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h3><p>The card needs to persist data across power cycles - it would be pretty useless if you lost all your tap connections when the battery dies at a concert. The STM32L0’s internal EEPROM emulation (backed by flash) is used for storage, with CRC32 integrity checking to guard against corruption.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│                      Application                             │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                    IStorage Interface                        │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                   Storage Implementation                     │</span><br><span class="line">│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────┐  │</span><br><span class="line">│  │ CRC32 Check │  │ Dirty Flag   │  │ Delayed Write      │  │</span><br><span class="line">│  └─────────────┘  └──────────────┘  └────────────────────┘  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                  Platform Storage HAL                        │</span><br><span class="line">│              (platform_storage_arduino.cpp)                  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                   STM32 EEPROM Library                       │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h4 id="Data-Layout"><a href="#Data-Layout" class="headerlink" title="Data Layout"></a>Data Layout</h4><p>The entire persistent image is <strong>896 bytes</strong>, structured as <code>PersistImageV1</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Offset  Size    Field</span><br><span class="line">------  ----    -----</span><br><span class="line">0       4       magic (0x424F4B41 = &quot;BOKA&quot;)</span><br><span class="line">4       2       version (1)</span><br><span class="line">6       2       length (sizeof payload)</span><br><span class="line">8       4       crc32 (over payload only)</span><br><span class="line">12      12      selfId (device UID)</span><br><span class="line">24      4       totalTapCount</span><br><span class="line">28      2       linkCount</span><br><span class="line">30      1       keyVersion (0 = not provisioned)</span><br><span class="line">31      1       reserved</span><br><span class="line">32      768     links[64] (12 bytes each)</span><br><span class="line">800     32      secretKey</span><br><span class="line">832     64      reserved (future use)</span><br></pre></td></tr></table></figure>
+
+<p>The magic bytes <code>0x424F4B41</code> spell out “BOKA” - a quick sanity check on load. The CRC32 is calculated using the STM32’s hardware CRC peripheral for speed, covering only the payload (not the header).</p>
+<div class="note info flat"><p>Each card can store up to <strong>64 unique peer IDs</strong>. When the limit is reached, the buffer wraps around and overwrites the oldest links. The <code>linkCount</code> keeps incrementing past 64 to track total lifetime unique peers.</p>
+</div>
+
+<h4 id="The-Flash-Write-Problem"><a href="#The-Flash-Write-Problem" class="headerlink" title="The Flash Write Problem"></a>The Flash Write Problem</h4><p>Here’s the thing about STM32L0 EEPROM emulation - it’s backed by flash memory with limited write cycles (~10,000 per page). A full 896-byte write takes <strong>6-7 seconds</strong> and blocks the entire MCU. Each individual byte write can take 5-10ms. That’s a problem when you need to stay responsive for USB serial and TapLink communication.</p>
+<p>Three solutions are implemented:</p>
+<p><strong>1. Delayed writes (2-second batch window)</strong> - Multiple changes within 2 seconds are batched into a single write. The <code>loop()</code> function checks a dirty flag and elapsed time before committing.</p>
+<p><strong>2. Optimized partial saves</strong> - Instead of writing 896 bytes every time:</p>
+<ul>
+<li><code>saveTapCountOnly()</code> writes just <strong>8 bytes</strong> (tap count + CRC) - ~100x faster</li>
+<li><code>saveLinkOnly()</code> writes just <strong>18 bytes</strong> (link count + new link entry + CRC) - ~50x faster</li>
+</ul>
+<p><strong>3. Chunked writes with yield</strong> - Full writes are broken into 32-byte chunks with 1ms delays between them, allowing serial interrupts to be processed:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">size_t</span> CHUNK_SIZE = <span class="number">32</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; <span class="built_in">sizeof</span>(PersistImageV1); ++i) &#123;</span><br><span class="line">    <span class="built_in">platform_storage_write</span>(...);</span><br><span class="line">    <span class="keyword">if</span> ((i % CHUNK_SIZE) == (CHUNK_SIZE - <span class="number">1</span>)) &#123;</span><br><span class="line">        <span class="built_in">platform_delay_ms</span>(<span class="number">1</span>);  <span class="comment">// Let serial interrupts breathe</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<div class="note warning flat"><p>For the <code>CLEAR</code> and <code>PROVISION_KEY</code> USB commands, the ACK response is sent <em>before</em> the EEPROM write begins. This prevents the host from timing out while waiting for the blocking write to complete. Secret key writes (<code>setSecretKey()</code>) always save immediately with no delay - security-critical data shouldn’t sit in a dirty buffer.</p>
+</div>
+
+<h4 id="Link-Management"><a href="#Link-Management" class="headerlink" title="Link Management"></a>Link Management</h4><p>Before adding a new peer, <code>hasLink()</code> does an O(n) scan of existing links to prevent duplicates. When <code>MAX_LINKS</code> (64) is reached, the index wraps around:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idx = idx % PersistPayloadV1::MAX_LINKS;  <span class="comment">// Circular buffer</span></span><br></pre></td></tr></table></figure>
+
+<p>Oldest links get overwritten, but <code>linkCount</code> keeps going up so the total lifetime count is preserved for NEXI.</p>
+<h4 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h4><p>On first boot (or after corruption), the storage initializes fresh:</p>
+<ol>
+<li>Try to load from NVM - validate magic, version, length, and CRC32</li>
+<li>If validation fails, zero-initialize everything, stamp the magic&#x2F;version, copy the hardware UID into selfId, and write</li>
+<li>If selfId is all zeros (shouldn’t happen, but defensive), re-read from the hardware UID</li>
+</ol>
+<h3 id="Designing-TapLink-A-Masterless-1-Wire-Protocol"><a href="#Designing-TapLink-A-Masterless-1-Wire-Protocol" class="headerlink" title="Designing TapLink - A Masterless 1-Wire Protocol"></a>Designing TapLink - A Masterless 1-Wire Protocol</h3><p>The core challenge was figuring out how two cards communicate when they tap together. I designed <strong>TapLink</strong> - a device-to-device communication protocol over a single GPIO wire using an open-drain configuration. Neither card needs to be the “master.” Both cards are equal peers that negotiate who takes the lead.</p>
+<h4 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h4><p>The protocol is layered cleanly so each concern is separated:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">┌─────────────────────────────────────────────────────────────┐</span><br><span class="line">│                         Application                         │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│         ITapLink / ITapLinkEval / ITapLinkBattery           │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                           TapLink                           │</span><br><span class="line">│  ┌─────────────┐  ┌──────────────┐  ┌────────────────────┐  │</span><br><span class="line">│  │ Detection   │  │ Negotiation  │  │ Command Protocol   │  │</span><br><span class="line">│  │ State       │  │ (UID bits)   │  │ (Master/Slave)     │  │</span><br><span class="line">│  └─────────────┘  └──────────────┘  └────────────────────┘  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                         IOneWireHal                         │</span><br><span class="line">│                 (tap_link_hal_arduino.cpp)                  │</span><br><span class="line">├─────────────────────────────────────────────────────────────┤</span><br><span class="line">│                      Platform GPIO HAL                      │</span><br><span class="line">└─────────────────────────────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+
+<h4 id="Electrical-Interface-Open-Drain"><a href="#Electrical-Interface-Open-Drain" class="headerlink" title="Electrical Interface - Open-Drain"></a>Electrical Interface - Open-Drain</h4><p>The physical layer uses an open-drain configuration on a single GPIO pin. Both devices share one wire with internal pull-ups:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">       Device A                    Device B</span><br><span class="line">          │                           │</span><br><span class="line">┌─────────┴─────────┐       ┌─────────┴─────────┐</span><br><span class="line">│ GPIO (Open-Drain) │───────│ GPIO (Open-Drain) │</span><br><span class="line">│ + Internal Pull-up│       │ + Internal Pull-up│</span><br><span class="line">└───────────────────┘       └───────────────────┘</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Idle state:</strong> HIGH (via internal pull-ups)</li>
+<li><strong>Either device</strong> can pull the line LOW</li>
+<li><strong>Wired-AND:</strong> the line is HIGH only if <em>both</em> devices release</li>
+<li><strong>No bus contention</strong> is possible - this is key for safety</li>
+</ul>
+<p>The GPIO switches between two modes:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Config</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Release</td>
+<td>INPUT_PULLUP</td>
+<td>High-Z with pull-up (line goes HIGH)</td>
+</tr>
+<tr>
+<td>Drive LOW</td>
+<td>OUTPUT + LOW</td>
+<td>Actively pulls line to ground</td>
+</tr>
+</tbody></table>
+<h4 id="Two-Operation-Modes"><a href="#Two-Operation-Modes" class="headerlink" title="Two Operation Modes"></a>Two Operation Modes</h4><p>TapLink supports two modes - one for development and one for the real thing:</p>
+<p><strong>Eval Board Mode</strong> - USB-powered continuous monitoring for development on Nucleo boards. Sends periodic presence pulses and automatically negotiates on connection. This is what I used for all the prototyping.</p>
+<p><strong>Battery Mode</strong> - CR2032-powered with sleep&#x2F;wake. The MCU sleeps until a tap wake-up interrupt fires, validates the connection is stable, then proceeds. Minimal power consumption for concert use.</p>
+<h4 id="Detection-State-Machine"><a href="#Detection-State-Machine" class="headerlink" title="Detection State Machine"></a>Detection State Machine</h4><p>When not connected, both devices send periodic presence pulses to announce themselves:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Timing:</span><br><span class="line">- Pulse width: 2ms</span><br><span class="line">- Pulse interval: 50ms</span><br><span class="line">- Debounce time: 5ms</span><br><span class="line"></span><br><span class="line">       Device A sends pulse                  Device B detects</span><br><span class="line">              │                                    │</span><br><span class="line">    HIGH ─────┴────┐          ┌────────────────────┴───────── HIGH</span><br><span class="line">                   │          │</span><br><span class="line">    LOW            └──────────┘</span><br><span class="line">                   ◄──────────► 2ms</span><br></pre></td></tr></table></figure>
+
+<p>When a device detects a peer’s pulse, the state machine kicks in:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">┌──────────────┐</span><br><span class="line">│ NoConnection │◄────────────────────────────────┐</span><br><span class="line">└──────┬───────┘                                 │</span><br><span class="line">       │ Line goes LOW (peer pulse)              │</span><br><span class="line">       ▼                                         │</span><br><span class="line">┌──────────────┐                                 │</span><br><span class="line">│  Detecting   │                                 │</span><br><span class="line">└──────┬───────┘                                 │</span><br><span class="line">       │ Line goes HIGH or debounce timeout      │</span><br><span class="line">       ▼                                         │</span><br><span class="line">┌──────────────┐                                 │</span><br><span class="line">│ Negotiating  │                                 │</span><br><span class="line">└──────┬───────┘                                 │</span><br><span class="line">       │ Role determined                         │</span><br><span class="line">       ▼                                         │</span><br><span class="line">┌──────────────┐                                 │</span><br><span class="line">│  Connected   │─────────────────────────────────┘</span><br><span class="line">└──────────────┘   Timeout or repeated failures</span><br></pre></td></tr></table></figure>
+
+<h4 id="Role-Negotiation-The-Tricky-Part"><a href="#Role-Negotiation-The-Tricky-Part" class="headerlink" title="Role Negotiation - The Tricky Part"></a>Role Negotiation - The Tricky Part</h4><p>This is where the magic (and pain) happens. Both devices need to start bit exchange simultaneously, so they perform a synchronization handshake first:</p>
+<ol>
+<li>Release line, wait for HIGH</li>
+<li>Send 10ms sync pulse</li>
+<li>Wait for line HIGH</li>
+<li>Wait for peer’s sync pulse (up to 50ms)</li>
+<li>Wait for peer’s pulse to complete</li>
+<li>5ms delay</li>
+<li>Send second 10ms sync pulse</li>
+<li>Wait for line HIGH</li>
+<li>5ms final alignment delay</li>
+<li>Begin bit exchange</li>
+</ol>
+<p>This achieves ~1-2ms synchronization accuracy between the two devices.</p>
+<p>Then comes the <strong>UID bit exchange</strong>. The higher UID becomes Master. The first 32 bits of each device’s unique ID are compared, MSB first:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Timing per bit:</span><br><span class="line">- Drive period: 5ms</span><br><span class="line">- Sample point: 2.5ms</span><br><span class="line">- Recovery: 2ms</span><br><span class="line"></span><br><span class="line">For each bit position (MSB first):</span><br><span class="line">1. Drive line based on my bit (0 = LOW, 1 = release)</span><br><span class="line">2. Wait 2.5ms (sample point)</span><br><span class="line">3. Sample line 3 times with majority voting</span><br><span class="line">4. Continue driving until 5ms total</span><br><span class="line">5. Release line</span><br><span class="line">6. 2ms recovery</span><br><span class="line">7. Next bit</span><br><span class="line"></span><br><span class="line">Decision logic:</span><br><span class="line">- If I sent &#x27;1&#x27; (released) but line is LOW → peer sent &#x27;0&#x27; → I am MASTER</span><br><span class="line">- If bits match, continue to next bit</span><br><span class="line">- After 32 bits: use random tie-breaker, then UID sum parity</span><br></pre></td></tr></table></figure>
+
+<div class="note info flat"><p><strong>Why the 5ms drive period?</strong> The long drive period with mid-point sampling at 2.5ms ensures reliable reading even with ~2ms sync error between devices. Both devices are guaranteed to be in their drive phase when sampling occurs. This was one of the key insights that made the protocol work.</p>
+</div>
+
+
+<h2 id="The-Timing-Nightmare"><a href="#The-Timing-Nightmare" class="headerlink" title="The Timing Nightmare"></a>The Timing Nightmare</h2><p>Here’s where things got painful. After getting USB serial working and implementing the 1-wire protocol, the <strong>master negotiation wasn’t working</strong>. The timing of the signals was off - two cards couldn’t reliably agree on who should be the master.</p>
+<p>Here are all the timing constants that needed to be carefully tuned:</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DEBOUNCE_TIME_US</td>
+<td>5,000</td>
+<td>Connection detection debounce</td>
+</tr>
+<tr>
+<td>PRESENCE_PULSE_US</td>
+<td>2,000</td>
+<td>Presence pulse width</td>
+</tr>
+<tr>
+<td>PULSE_INTERVAL_US</td>
+<td>50,000</td>
+<td>Time between presence pulses</td>
+</tr>
+<tr>
+<td>BIT_DRIVE_US</td>
+<td>5,000</td>
+<td>Bit drive duration</td>
+</tr>
+<tr>
+<td>BIT_SAMPLE_US</td>
+<td>2,500</td>
+<td>Sample point within bit slot</td>
+</tr>
+<tr>
+<td>BIT_RECOVERY_US</td>
+<td>2,000</td>
+<td>Recovery between bits</td>
+</tr>
+<tr>
+<td>SYNC_PULSE_US</td>
+<td>10,000</td>
+<td>Sync handshake pulse</td>
+</tr>
+<tr>
+<td>SYNC_WAIT_US</td>
+<td>5,000</td>
+<td>Sync alignment delay</td>
+</tr>
+<tr>
+<td>CMD_START_PULSE_US</td>
+<td>5,000</td>
+<td>Command start pulse</td>
+</tr>
+<tr>
+<td>CMD_TURNAROUND_US</td>
+<td>2,000</td>
+<td>Send&#x2F;receive turnaround</td>
+</tr>
+<tr>
+<td>CMD_TIMEOUT_US</td>
+<td>100,000</td>
+<td>Command response timeout</td>
+</tr>
+<tr>
+<td>SLAVE_IDLE_TIMEOUT_US</td>
+<td>2,000,000</td>
+<td>Slave disconnect timeout</td>
+</tr>
+</tbody></table>
+<h2 id="Debugging-with-AI-and-an-Oscilloscope"><a href="#Debugging-with-AI-and-an-Oscilloscope" class="headerlink" title="Debugging with AI and an Oscilloscope"></a>Debugging with AI and an Oscilloscope</h2><p>After a lot of frustration, I turned to two allies: <strong>AI</strong> and an <strong>oscilloscope</strong>.</p>
+<p>The first problem was <strong>link detection itself</strong>. My initial approach used a simple pulse to detect when two cards were tapped together - one device sends a pulse, the other detects it, and they move on to negotiation. Sounds straightforward, right?</p>
+<p>In practice, the pulse-based detection was a mess. The timing wasn’t stable enough, and worse - the peer’s presence pulse could easily be mistaken as the start of actual data transmission. The two devices would get confused about whether they were still in the detection phase or had already moved into negotiation. The oscilloscope made this painfully obvious: pulses that should have been clean detection signals were getting mixed up with the beginning of the bit exchange.</p>
+<p>With the oscilloscope confirming the problem, I turned to <strong>Grok</strong> and <strong>Opus</strong> for help restructuring the code. The key insight they helped me arrive at was to <strong>separate the detection logic entirely</strong> from the data exchange logic and introduce a proper <strong>state machine</strong> to manage the detection phase. Instead of one tangled flow where pulses could mean anything, each state (NoConnection, Detecting, Negotiating, Connected) had clear entry&#x2F;exit conditions and its own pulse handling. This made it impossible for a presence pulse to be misinterpreted as a data signal - the state machine simply wouldn’t allow it.</p>
+<p>Once I reworked the link detection logic with this state machine approach, things started clicking into place. Both devices could now reliably detect each other, sync up with a clean pulse, and enter the negotiation phase together.</p>
+<h2 id="Master-Detection-Working"><a href="#Master-Detection-Working" class="headerlink" title="Master Detection Working"></a>Master Detection Working</h2><p>With the detection fix in, master detection finally worked reliably. Two cards could now detect each other’s presence, sync up, and negotiate which one takes the lead using the UID bit exchange - all without confusion between detection and data phases.</p>
+<video controls width="100%">
+  <source src="detection.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+Detection phase demo: illustrates 1-wire tap detection reliability with state machine design.
+
+
+<h2 id="Adding-Command-Exchange"><a href="#Adding-Command-Exchange" class="headerlink" title="Adding Command Exchange"></a>Adding Command Exchange</h2><p>With role negotiation working, adding the command protocol on top was straightforward. The packet format is simple:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">START pulse (5ms) → Turnaround (2ms) → Command byte → Turnaround (2ms) → Response byte</span><br></pre></td></tr></table></figure>
+
+<p>Bit timing is the same as negotiation: 5ms drive, 2.5ms sample, 2ms recovery. Consistency here keeps things simple.</p>
+<h3 id="Commands-and-Responses"><a href="#Commands-and-Responses" class="headerlink" title="Commands and Responses"></a>Commands and Responses</h3><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x01</td>
+<td>CHECK_READY</td>
+<td>Master polls slave availability</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>REQUEST_ID</td>
+<td>Master requests slave’s UID</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>SEND_ID</td>
+<td>Master sends its UID to slave</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Response</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0x06</td>
+<td>ACK</td>
+<td>Command successful</td>
+</tr>
+<tr>
+<td>0x15</td>
+<td>NAK</td>
+<td>Command rejected</td>
+</tr>
+</tbody></table>
+<h3 id="ID-Exchange-Sequence"><a href="#ID-Exchange-Sequence" class="headerlink" title="ID Exchange Sequence"></a>ID Exchange Sequence</h3><p>Once roles are established, the actual ID exchange follows this flow:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Master                              Slave</span><br><span class="line">  │                                   │</span><br><span class="line">  ├── START + REQUEST_ID ───────────►│</span><br><span class="line">  │                                   │</span><br><span class="line">  │◄───────────── ACK ────────────────┤</span><br><span class="line">  │◄──────────── UID (12 bytes) ──────┤</span><br><span class="line">  │                                   │</span><br><span class="line">  ├── START + SEND_ID ───────────────►│</span><br><span class="line">  ├── UID (12 bytes) ────────────────►│</span><br><span class="line">  │                                   │</span><br><span class="line">  │◄───────────── ACK ────────────────┤</span><br><span class="line">  │                                   │</span><br></pre></td></tr></table></figure>
+
+<h3 id="Disconnect-Detection"><a href="#Disconnect-Detection" class="headerlink" title="Disconnect Detection"></a>Disconnect Detection</h3><p>The protocol also handles disconnection gracefully from both sides:</p>
+<ul>
+<li><strong>Master side:</strong> tracks consecutive command failures. After 3 failures, transition back to NoConnection. Invalid responses (0xFF from a floating line) count as failures.</li>
+<li><strong>Slave side:</strong> tracks time since last command received. After 2 seconds of silence, transition back to NoConnection.</li>
+</ul>
+<h2 id="It-Works-Exchanging-IDs-and-Counting-Connections"><a href="#It-Works-Exchanging-IDs-and-Counting-Connections" class="headerlink" title="It Works! Exchanging IDs and Counting Connections"></a>It Works! Exchanging IDs and Counting Connections</h2><p>Finally - two cards can <strong>communicate, exchange their unique IDs, and count how many IDs they’ve collected</strong>!</p>
+<img src="/2026/02/13/building-bokaka-2/exchange.png" class="" title="exchange id">
+
+<h2 id="What’s-Next"><a href="#What’s-Next" class="headerlink" title="What’s Next"></a>What’s Next</h2><p>The firmware works. Two Nucleo dev boards can detect each other, negotiate roles, exchange IDs, and store them - all over a single wire. But right now this is all happening on chunky development boards wired together on a desk. That’s not exactly something you’d bring to a concert.</p>
+<p>The next step is turning this into an actual PCB. That means designing the schematic - taking the STM32L053R8 and all the supporting circuitry (USB connector, CR2450 battery holder, LEDs, the TapLink connector) and laying it all out properly. Then routing the PCB, getting it manufactured, and soldering up the first real Bokaka cards.</p>
+<p>Stay tuned for part 3, where I’ll go through the full hardware design process - from schematic capture to holding a finished board in my hands.</p>
+<p>Project is open source: <a target="_blank" rel="noopener" href="https://github.com/diva-eng/BOKAKA">diva-eng&#x2F;BOKAKA</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a target="_blank" rel="noopener" href="https://github.com/r1cebank">r1cebank</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://r1ce.net/2026/02/13/building-bokaka-2/">https://r1ce.net/2026/02/13/building-bokaka-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/stm32/">stm32</a><a class="post-meta__tags" href="/tags/vocaloid/">vocaloid</a><a class="post-meta__tags" href="/tags/bokaka/">bokaka</a><a class="post-meta__tags" href="/tags/open-hardware/">open-hardware</a></div><div class="post-share"><div class="social-share" data-image="/covers/building-bokaka-2.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2026/01/08/year-review-2025/" title="2025 Review"><img class="cover" src="/covers/review-5.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">2025 Review</div></div><div class="info-2"><div class="info-item-1">It took me a while to put together the review for 2025, in a sense I don’t think I have done anything special or worth writing this year. But then again, gotta keep up with the tradition. Achievements 成就 Moved to Japan! 🗾 Started developing my first game! Gained experience on Dollfie Started making NEXI and Bokaka Able to play two song on the Bass Started using Kafu and music making  Stop Doing 停止做的事情 Not doing much dieting Chasing social media  Start Doing 准备做的事情 Spend more time on game dev...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2026/01/03/building-bokaka-1/" title="Building Bokaka"><img class="cover" src="/covers/building-bokaka-1.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-01-03</div><div class="info-item-2">Building Bokaka</div></div><div class="info-2"><div class="info-item-1">Why VOCALOIDVOCALOID was never just music software to me. It’s a whole movement built by creators - producers, artists, fans - who made something together without needing permission from record labels or agencies. Miku belongs to everyone. Her songs come from bedroom producers, her art from passionate fans, and her concerts celebrate a community that built her legacy together. What makes it special is the spirit of the creators. Every producer puts a piece of themselves into their songs - the...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="https://avatars.githubusercontent.com/u/261671" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">r1cebank</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">33</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/r1cebank"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/r1cebank" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:me@r1ce.net" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Welcome to my blog, this is where I record learnings and write about random stuff. Enjoy ❤️<br> 旧博客内容导入完成，会时不时的更新新内容</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Choosing-the-MCU"><span class="toc-number">1.</span> <span class="toc-text">Choosing the MCU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Getting-Started-with-Nucleo-Dev-Boards"><span class="toc-number">2.</span> <span class="toc-text">Getting Started with Nucleo Dev Boards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Writing-the-Firmware"><span class="toc-number">3.</span> <span class="toc-text">Writing the Firmware</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#USB-Serial-Communication"><span class="toc-number">3.1.</span> <span class="toc-text">USB Serial Communication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Command-Reference"><span class="toc-number">3.1.1.</span> <span class="toc-text">Command Reference</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Storage"><span class="toc-number">3.2.</span> <span class="toc-text">Storage</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Data-Layout"><span class="toc-number">3.2.1.</span> <span class="toc-text">Data Layout</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#The-Flash-Write-Problem"><span class="toc-number">3.2.2.</span> <span class="toc-text">The Flash Write Problem</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Link-Management"><span class="toc-number">3.2.3.</span> <span class="toc-text">Link Management</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Initialization"><span class="toc-number">3.2.4.</span> <span class="toc-text">Initialization</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Designing-TapLink-A-Masterless-1-Wire-Protocol"><span class="toc-number">3.3.</span> <span class="toc-text">Designing TapLink - A Masterless 1-Wire Protocol</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Architecture"><span class="toc-number">3.3.1.</span> <span class="toc-text">Architecture</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Electrical-Interface-Open-Drain"><span class="toc-number">3.3.2.</span> <span class="toc-text">Electrical Interface - Open-Drain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Two-Operation-Modes"><span class="toc-number">3.3.3.</span> <span class="toc-text">Two Operation Modes</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Detection-State-Machine"><span class="toc-number">3.3.4.</span> <span class="toc-text">Detection State Machine</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Role-Negotiation-The-Tricky-Part"><span class="toc-number">3.3.5.</span> <span class="toc-text">Role Negotiation - The Tricky Part</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Timing-Nightmare"><span class="toc-number">4.</span> <span class="toc-text">The Timing Nightmare</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debugging-with-AI-and-an-Oscilloscope"><span class="toc-number">5.</span> <span class="toc-text">Debugging with AI and an Oscilloscope</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Master-Detection-Working"><span class="toc-number">6.</span> <span class="toc-text">Master Detection Working</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-Command-Exchange"><span class="toc-number">7.</span> <span class="toc-text">Adding Command Exchange</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Commands-and-Responses"><span class="toc-number">7.1.</span> <span class="toc-text">Commands and Responses</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ID-Exchange-Sequence"><span class="toc-number">7.2.</span> <span class="toc-text">ID Exchange Sequence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disconnect-Detection"><span class="toc-number">7.3.</span> <span class="toc-text">Disconnect Detection</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#It-Works-Exchanging-IDs-and-Counting-Connections"><span class="toc-number">8.</span> <span class="toc-text">It Works! Exchanging IDs and Counting Connections</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What%E2%80%99s-Next"><span class="toc-number">9.</span> <span class="toc-text">What’s Next</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2026/02/13/building-bokaka-2/" title="Building Bokaka (part 2)"><img src="/covers/building-bokaka-2.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Building Bokaka (part 2)"/></a><div class="content"><a class="title" href="/2026/02/13/building-bokaka-2/" title="Building Bokaka (part 2)">Building Bokaka (part 2)</a><time datetime="2026-02-13T04:59:36.000Z" title="Created 2026-02-12 20:59:36">2026-02-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/08/year-review-2025/" title="2025 Review"><img src="/covers/review-5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2025 Review"/></a><div class="content"><a class="title" href="/2026/01/08/year-review-2025/" title="2025 Review">2025 Review</a><time datetime="2026-01-08T08:31:11.000Z" title="Created 2026-01-08 00:31:11">2026-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/01/03/building-bokaka-1/" title="Building Bokaka"><img src="/covers/building-bokaka-1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Building Bokaka"/></a><div class="content"><a class="title" href="/2026/01/03/building-bokaka-1/" title="Building Bokaka">Building Bokaka</a><time datetime="2026-01-03T19:43:18.000Z" title="Created 2026-01-03 11:43:18">2026-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/23/amptalk-interview/" title="My Interview Journey with Amptalk"><img src="/covers/amptalk-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="My Interview Journey with Amptalk"/></a><div class="content"><a class="title" href="/2025/05/23/amptalk-interview/" title="My Interview Journey with Amptalk">My Interview Journey with Amptalk</a><time datetime="2025-05-23T07:00:00.000Z" title="Created 2025-05-23 00:00:00">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi"><img src="/covers/caddi-interview.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Why I Decided Not to Join CADDi"/></a><div class="content"><a class="title" href="/2025/05/21/caddi-interview/" title="Why I Decided Not to Join CADDi">Why I Decided Not to Join CADDi</a><time datetime="2025-05-21T06:31:54.000Z" title="Created 2025-05-20 23:31:54">2025-05-20</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2021 - 2026 By r1cebank</span></div><div class="footer_custom_text">Made with ❤️ in Vancouver</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3"></script><script src="/js/main.js?v=5.5.3"></script><div class="js-pjax"><script>(() => {
+  const runMermaid = ele => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? '' : ''
+
+    ele.forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const config = mermaidSrc.dataset.config ? JSON.parse(mermaidSrc.dataset.config) : {}
+      if (!config.theme) {
+        config.theme = theme
+      }
+      const mermaidThemeConfig = `%%{init: ${JSON.stringify(config)}}%%\n`
+      const mermaidID = `mermaid-${index}`
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+      const renderMermaid = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      // mermaid v9 and v10 compatibility
+      typeof renderFn === 'string' ? renderMermaid(renderFn) : renderFn.then(({ svg }) => renderMermaid(svg))
+    })
+  }
+
+  const codeToMermaid = () => {
+    const codeMermaidEle = document.querySelectorAll('pre > code.mermaid')
+    if (codeMermaidEle.length === 0) return
+
+    codeMermaidEle.forEach(ele => {
+      const preEle = document.createElement('pre')
+      preEle.className = 'mermaid-src'
+      preEle.hidden = true
+      preEle.textContent = ele.textContent
+      const newEle = document.createElement('div')
+      newEle.className = 'mermaid-wrap'
+      newEle.appendChild(preEle)
+      ele.parentNode.replaceWith(newEle)
+    })
+  }
+
+  const loadMermaid = () => {
+    if (false) codeToMermaid()
+    const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+    if ($mermaid.length === 0) return
+
+    const runMermaidFn = () => runMermaid($mermaid)
+    btf.addGlobalFn('themeChange', runMermaidFn, 'mermaid')
+    window.loadMermaid ? runMermaidFn() : btf.getScript('https://cdn.jsdelivr.net/npm/mermaid@11.12.2/dist/mermaid.min.js').then(runMermaidFn)
+  }
+
+  btf.addGlobalFn('encrypt', loadMermaid, 'mermaid')
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
